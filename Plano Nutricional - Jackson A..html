@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plano Nutricional — Jackson Angamarca</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  .day-btn, .meal-header, .item-row, [data-shop], [data-meal] { touch-action: manipulation; cursor: pointer; }
+  html, body {
+    background: #e8eaf4; font-family: 'Inter', sans-serif; color: #1e2240;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='380' viewBox='0 0 500 380'%3E%3Cg transform='translate(250,190) rotate(-20) scale(0.28)' opacity='0.04'%3E%3Cpath d='M129.66 367.385C96.38 366.225 79.95 362.735 59.89 352.705C42.74 344.125 22.54 324.215 13.67 306.925C6.84 293.695 2.62 279.165 1.02 263.325L0 252.715H48.11C95.49 252.715 96.22 252.715 96.22 255.625C96.22 260.275 101.6 269.575 105.96 272.775C114.54 278.585 117.59 278.875 185.76 278.875C261.92 278.875 255.38 280.475 254.36 262.745C253.92 254.315 253.2 251.985 249.42 247.335C240.41 236.145 227.91 232.075 169.62 221.465C62.64 201.845 44.04 196.175 24.27 176.405C9.01 161.145 3.05 144.575 3.05 116.665C2.9 68.995 24.27 33.525 64.97 13.615C90.99 0.965 105.67-0.775 182.41 0.245C244.47 0.975 250.58 1.695 271.65 9.985C302.03 22.195 324.41 46.035 334.3 76.845C337.64 86.875 340.4 102.135 340.4 109.985V114.635H292.43H244.61L242.87 108.535C240.54 99.815 236.77 95.015 229.5 91.525C223.54 88.615 220.92 88.475 172.38 88.475C140.98 88.475 119.47 89.055 116.13 90.075C99.85 94.585 93.02 114.205 103.78 125.835C110.9 133.685 117.59 135.425 193.61 149.385C265.85 162.755 291.58 170.165 311.63 183.395C336.63 200.115 349.13 222.635 349.13 251.125C349.13 269.295 345.5 283.535 336.63 301.125C330.96 312.175 327.33 316.965 315.85 328.305C301.46 342.545 291.58 349.085 272.68 356.645C246.08 367.255 206.26 370.305 129.66 367.405V367.385Z' fill='%231E10C7'/%3E%3Cpath d='M344.78 364.765C344.78 364.035 347.11 358.365 350.01 352.115C352.92 345.715 363.67 322.025 373.85 299.205C414.4 208.505 461.35 105.165 462.37 104.005C462.95 103.425 483.15 103.135 507.14 103.275L550.89 103.715L542.17 124.795C537.37 136.425 527.64 160.265 520.37 177.845C513.25 195.435 502.2 222.325 495.95 237.435C468.62 304.005 450.46 348.625 446.97 357.055L443.34 366.065H394.07C366.89 366.065 344.8 365.485 344.8 364.755L344.78 364.765Z' fill='%231E10C7'/%3E%3Cpath d='M648.56 321.455C616.29 247.325 509.17 6.485 506.55 2.265C506.26 1.685 527.92 1.395 554.95 1.535L603.79 1.975L612.22 20.875C621.81 42.825 640.56 84.535 656.55 119.715C668.32 145.585 673.85 157.795 728.21 278.295C746.52 319.135 763.09 355.325 764.69 358.525C766.43 361.865 767.74 364.925 767.74 365.355C767.74 365.795 745.36 366.085 717.89 366.085H668.04L648.56 321.465V321.455Z' fill='%231E10C7'/%3E%3Cpath d='M1170.07 519.125C1171.09 490.635 1177.77 450.665 1187.22 417.675C1217.31 312.585 1283.59 203.865 1380.97 99.655L1386.06 94.275H1297.98H1210.04L1196.09 128.145C1188.39 146.605 1177.19 173.925 1170.94 188.755C1164.84 203.585 1154.37 228.725 1147.68 244.715C1141.14 260.705 1130.53 286.285 1124.28 301.405C1117.88 316.665 1109.31 337.305 1104.95 347.625L1097.25 366.085H1047.69H997.98L984.03 331.635C976.33 312.595 958.45 268.985 944.35 234.545C930.25 200.245 912.08 155.475 903.94 135.415C895.8 115.215 888.68 98.645 888.24 98.645C887.8 98.645 887.37 109.545 887.37 123.065C887.37 136.435 887.37 196.615 887.22 256.785L886.93 366.085H840.42H793.91V185.125V4.165H869.2H944.64L956.41 32.945C962.95 48.645 980.39 90.645 995.22 126.255C1010.19 161.865 1026.76 201.695 1032.28 214.915C1047.69 252.125 1046.96 250.675 1048.27 248.345C1050.01 244.855 1098.85 128.145 1133.74 43.835L1150.75 2.705H1321.1H1491.59V48.635V94.565L1472.26 115.785C1436.79 155.025 1420.37 175.815 1396.82 212.005C1348.27 286.275 1313.24 376.835 1297.69 467.815C1293.62 491.945 1291 513.745 1291 524.505V531.775H1230.39H1169.63L1170.07 519.125Z' fill='%231E10C7'/%3E%3Cpath d='M341.43 510.555C340.85 509.975 340.41 497.185 340.41 482.065V454.735H331.83C322.24 454.735 321.51 454.005 321.95 444.565L322.24 439.475L349.57 439.035L376.75 438.745V446.735V454.725H368.03H359.31L359.02 482.775L358.58 510.685L350.59 511.125C346.08 511.415 342.01 511.125 341.43 510.545V510.555Z' fill='%231E10C7'/%3E%3Cpath d='M403.79 510.265C403.35 509.825 402.92 493.545 402.92 474.075V438.465L423.12 439.045C440.85 439.485 443.9 439.915 447.39 442.535C454.8 448.055 457.27 452.705 457.27 461.285C457.27 470.005 454.51 475.095 446.95 480.325L442.59 483.235L451.02 496.175C455.82 503.445 459.6 509.835 459.6 510.565C459.6 511.145 458.15 511.435 456.4 510.855C454.51 510.415 449.71 509.985 445.79 509.985H438.38L430.82 496.905C426.6 489.785 422.54 483.825 421.81 483.825C420.94 483.825 420.36 489.785 420.36 497.635V511.295H412.51C408.15 511.145 404.23 510.715 403.79 510.275V510.265Z' fill='%231E10C7'/%3E%3Cpath d='M436.64 468.255C439.84 465.345 440.13 458.665 436.93 455.605C435.48 454.155 432.13 453.275 427.48 453.275H420.36V461.995V470.715H427.19C431.41 470.715 434.89 469.845 436.64 468.245V468.255Z' fill='%231E10C7'/%3E%3Cpath d='M488.53 510.405L480.54 509.825L493.62 474.355L506.85 438.745H517.02H527.19L530.68 448.625C533.88 457.495 551.03 503.135 553.21 508.505C554.08 510.395 552.63 510.685 544.34 510.535L534.46 510.385L532.43 503.555L530.25 496.865H517.02H503.79L501.17 504.135C499.72 508.205 498.12 511.255 497.54 511.115C497.1 510.965 493.03 510.675 488.53 510.385V510.405Z' fill='%231E10C7'/%3E%3Cpath d='M524.14 480.605C520.94 470.135 517.31 461.855 516.29 463.015C515.71 463.595 513.96 467.815 512.66 472.175C511.21 476.535 509.75 481.045 509.32 482.055C508.88 483.365 510.92 483.795 517.02 483.795C524.87 483.795 525.16 483.645 524.14 480.595V480.605Z' fill='%231E10C7'/%3E%3Cpath d='M577.33 473.635V437.155L586.49 437.595L595.5 438.035L595.94 474.085L596.23 509.985H586.78H577.33V473.645V473.635Z' fill='%231E10C7'/%3E%3Cpath d='M623.85 474.795V438.745H633.01L642.02 438.895L655.83 459.535L669.64 480.175L670.08 459.535L670.52 438.755H679.1H687.82V475.095V511.435H679.39H670.81L656.86 490.355C649.01 478.725 642.33 469.275 641.6 469.275C641.02 469.275 640.58 478.575 640.58 489.915V510.695H632.3H623.87V474.795H623.85Z' fill='%231E10C7'/%3E%3Cpath d='M716.87 474.355V437.145L726.03 437.585L735.04 438.025V474.365V510.705L726.03 511.145L716.87 511.585V474.375V474.355Z' fill='%231E10C7'/%3E%3Cpath d='M763.38 474.795V438.745H772.54H781.55L793.76 457.645C800.45 467.965 806.84 477.265 807.86 478.135C809.6 479.585 809.89 476.535 809.89 459.235V438.745H818.61H827.33V475.085V511.425H818.9H810.32L795.93 490.055L781.54 468.545L780.81 489.625L780.08 510.705H771.8H763.37V474.805L763.38 474.795Z' fill='%231E10C7'/%3E%3Cpath d='M881.55 509.975C864.4 506.485 853.5 492.535 853.5 473.635C853.5 462.005 856.7 454.445 864.69 447.325C880.39 433.225 906.11 435.405 918.61 451.835C921.23 455.175 922.83 458.665 922.24 459.245C921.66 459.825 917.44 460.555 912.94 460.695C906.4 460.985 903.93 460.405 900.73 457.935C895.93 454.155 885.9 453.715 879.8 456.915C871.95 460.835 868.46 474.795 873.11 483.805C876.74 490.785 882.12 493.975 890.12 493.975C896.08 493.975 897.97 493.245 901.6 489.755C907.85 483.505 907.12 482.345 896.37 482.345H886.92V475.805V469.265H905.82H924.72V474.495C924.72 498.045 904.66 514.465 881.55 509.965V509.975Z' fill='%231E10C7'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  :root {
+    --blue-900: #0f0a8a;
+    --blue-800: #1E10C7;
+    --blue-700: #2d1fe0;
+    --blue-600: #3b2ef5;
+    --blue-400: #6b67f8;
+    --blue-200: #c3c1fc;
+    --blue-100: #e8e7fe;
+    --blue-50:  #f4f4ff;
+    --white: #ffffff;
+    --gray-50: #f8f9fc;
+    --gray-100: #f0f2fa;
+    --gray-200: #e2e6f0;
+    --gray-400: #9ba3be;
+    --gray-600: #5a6282;
+    --gray-800: #1e2240;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInUp   { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+  @keyframes fadeInDown { from { opacity:0; transform:translateY(-18px)} to { opacity:1; transform:translateY(0) } }
+  @keyframes slideInL   { from { opacity:0; transform:translateX(-20px)} to { opacity:1; transform:translateX(0) } }
+  @keyframes scaleIn    { from { opacity:0; transform:scale(.85) } to { opacity:1; transform:scale(1) } }
+  @keyframes pulseGlow  { 0%,100%{ box-shadow:0 0 0 0 rgba(30,16,199,.25) } 50%{ box-shadow:0 0 0 10px rgba(30,16,199,0) } }
+  @keyframes barGrow    { from { width:0 } }
+  @keyframes countPop   { from { opacity:0; transform:scale(.65) } to { opacity:1; transform:scale(1) } }
+  @keyframes float      { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-8px) } }
+  @keyframes mealOpen   { from { opacity:0; max-height:0; padding-top:0; padding-bottom:0 } to { opacity:1; max-height:800px; padding-top:10px; padding-bottom:1rem } }
+  @keyframes ripple     { 0%{ transform:scale(0); opacity:.5 } 100%{ transform:scale(4); opacity:0 } }
+  @keyframes shimmer    { 0%{ background-position:-200% center } 100%{ background-position:200% center } }
+  @keyframes staggerIn  { from { opacity:0; transform:translateY(14px) } to { opacity:1; transform:translateY(0) } }
+
+  /* ===== 12-COL GRID LAYOUT ===== */
+  .page {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    gap: 20px;
+    row-gap: 24px;
+  }
+  .col-12 { grid-column: span 12; }
+  .col-8  { grid-column: span 8; }
+  .col-6  { grid-column: span 6; }
+  .col-4  { grid-column: span 4; }
+  .col-3  { grid-column: span 3; }
+
+  @media (max-width: 900px) {
+    .col-8, .col-6, .col-4, .col-3 { grid-column: span 12; }
+    .page { padding: 1rem .75rem; gap: 14px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .macros-grid { grid-template-columns: 1fr; }
+    .day-tabs { grid-template-columns: repeat(7, 1fr); font-size: 9px; }
+    .day-btn { padding: 8px 2px; }
+    .totals-row { grid-template-columns: repeat(2, 1fr) !important; }
+    .header-name { font-size: 20px; }
+    .header-sub { font-size: 11px; }
+    .header-logo svg { height: 22px; }
+    .header-watermark { height: 35%; }
+    .meal-header { padding: .8rem 1rem; }
+    .meal-foods { padding: 8px 1rem .8rem; }
+    .meal-macros { gap: 6px; }
+    .stat-val { font-size: 17px; }
+    .section-title { font-size: 10px; }
+    .shop-header-title { font-size: 16px; }
+    .cat-card { padding: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .page { padding: .75rem .5rem; gap: 10px; }
+    .header { padding: 1.2rem 1rem; border-radius: 16px; }
+    .header-top { gap: 10px; margin-bottom: 1rem; }
+    .avatar { width: 44px; height: 44px; font-size: 17px; }
+    .header-name { font-size: 17px; }
+    .header-sub { font-size: 10px; }
+    .header-logo svg { height: 18px; }
+    .header-logo { top: 1rem; right: 1rem; }
+    .header-watermark { height: 30%; }
+    .stats-row { gap: 6px; }
+    .stat-box { padding: 8px 6px; border-radius: 10px; }
+    .stat-val { font-size: 15px; }
+    .stat-lbl { font-size: 9px; }
+    .day-tabs { gap: 4px; }
+    .day-btn { padding: 6px 1px; border-radius: 8px; font-size: 8px; }
+    .day-label { font-size: 8px; }
+    .day-type-badge { font-size: 11px; padding: 8px 10px; }
+    .meal-card { border-radius: 12px; }
+    .meal-name { font-size: 13px; }
+    .meal-kcal { font-size: 11px; padding: 3px 8px; }
+    .meal-macro { font-size: 10px; }
+    .food-row { font-size: 12px; }
+    .card { padding: 1rem; border-radius: 14px; }
+    .macro-item { padding: 10px; }
+    .macro-val { font-size: 17px; }
+    .total-item { padding: 8px; }
+    .total-val { font-size: 17px; }
+    .notes-card { padding: .8rem 1rem; font-size: 12px; }
+    .supp-item { font-size: 12px; padding: 8px 0; }
+    .supp-dose { font-size: 10px; padding: 2px 8px; }
+    .info-badge { font-size: 10px; padding: 2px 8px; }
+    .shop-header { padding: 1rem; border-radius: 14px; }
+    .shop-header-icon { width: 36px; height: 36px; font-size: 17px; }
+    .shop-header-title { font-size: 15px; }
+    .cat-card { padding: .8rem; border-radius: 12px; }
+    .cat-icon { width: 30px; height: 30px; font-size: 14px; border-radius: 8px; }
+    .cat-title { font-size: 11px; }
+    .item-row { padding: 6px 4px; gap: 8px; }
+    .item-name { font-size: 12px; }
+    .item-qty { font-size: 9px; padding: 2px 6px; }
+    .checkbox { width: 18px; height: 18px; border-radius: 5px; font-size: 10px; }
+    .sticky-side { position: static; }
+  }
+
+  /* ===== CARD BASE ===== */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 18px;
+    padding: 1.4rem;
+    animation: fadeInUp .5s ease both;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(30,16,199,.08); transform: translateY(-2px); }
+
+  .section-title {
+    font-size: 11px; font-weight: 700; color: var(--blue-800);
+    text-transform: uppercase; letter-spacing: .1em;
+    margin-bottom: 14px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-100);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::before {
+    content: ''; width: 4px; height: 14px;
+    background: var(--blue-800); border-radius: 2px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    background: linear-gradient(135deg, var(--blue-900), var(--blue-800) 50%, var(--blue-600));
+    border-radius: 20px;
+    padding: 1.8rem 1.6rem;
+    position: relative; overflow: hidden;
+    animation: fadeInDown .6s ease both;
+  }
+  .header-watermark {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    height: 50%; width: auto; opacity: .15; z-index: 0;
+    pointer-events: none;
+  }
+  .header-logo {
+    position: absolute; top: 1.4rem; right: 1.6rem;
+    z-index: 2; opacity: .7;
+    transition: opacity .3s;
+  }
+  .header-logo:hover { opacity: .95; }
+  .header-logo svg { height: 28px; width: auto; }
+  .header-top {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 1.4rem; position: relative; z-index: 1;
+  }
+  .avatar {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    border: 2.5px solid rgba(255,255,255,.35);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 22px; color: #fff;
+    flex-shrink: 0;
+    animation: pulseGlow 2.5s infinite;
+    backdrop-filter: blur(6px);
+  }
+  .header-name { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
+  .header-sub  { font-size: 12px; color: rgba(255,255,255,.7); margin-top: 3px; font-weight: 500; }
+
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    position: relative; z-index: 1;
+  }
+  .stat-box {
+    background: rgba(255,255,255,.12);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 14px; padding: 12px; text-align: center;
+    transition: transform .2s, background .2s;
+    cursor: default;
+  }
+  .stat-box:hover { background: rgba(255,255,255,.22); transform: translateY(-3px); }
+  .stat-val { font-size: 20px; font-weight: 800; color: #fff; animation: countPop .5s ease both; }
+  .stat-lbl { font-size: 10px; color: rgba(255,255,255,.7); margin-top: 3px; text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ===== MACROS ===== */
+  .macros-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+  .macro-item {
+    background: var(--blue-50); border: 1px solid var(--blue-100);
+    border-radius: 14px; padding: 14px;
+    position: relative; overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .macro-item::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--blue-800); opacity: 0; transition: opacity .2s;
+  }
+  .macro-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(30,16,199,.12); }
+  .macro-item:hover::after { opacity: 1; }
+  .macro-label { font-size: 10px; color: var(--gray-400); text-transform: uppercase; letter-spacing: .07em; font-weight: 600; }
+  .macro-val   { font-size: 20px; font-weight: 800; margin-top: 3px; }
+  .macro-sub   { font-size: 11px; color: var(--gray-400); margin-top: 1px; }
+  .macro-bar   { height: 4px; border-radius: 2px; margin-top: 8px; background: var(--gray-100); overflow: hidden; }
+  .macro-bar-fill { height: 100%; border-radius: 2px; animation: barGrow 1s ease both .3s; }
+  .m-blue  { color: var(--blue-800); }
+  .m-green { color: #0d7a5f; }
+  .m-amber { color: #c07a10; }
+  .m-red   { color: #c04030; }
+  .info-text  { font-size: 12px; color: var(--gray-400); margin-bottom: 10px; line-height: 1.6; }
+  .info-badge {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    padding: 3px 12px; border-radius: 20px;
+    background: var(--blue-100); color: var(--blue-800);
+    margin-top: 8px;
+  }
+
+  /* ===== SUPLEMENTAÇÃO ===== */
+  .supp-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid var(--gray-100);
+    font-size: 13px; transition: padding-left .2s;
+  }
+  .supp-item:last-child { border-bottom: none; }
+  .supp-item:hover { padding-left: 6px; }
+  .supp-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--blue-800); margin-right: 10px; flex-shrink: 0;
+    animation: pulseGlow 2s infinite;
+  }
+  .supp-name { display: flex; align-items: center; font-weight: 500; }
+  .supp-dose {
+    font-size: 11px; color: var(--blue-800); font-weight: 700;
+    background: var(--blue-50); padding: 3px 10px; border-radius: 20px;
+    border: 1px solid var(--blue-100); white-space: nowrap;
+  }
+
+  /* ===== PROTOCOLO / DAY TABS ===== */
+  .day-tabs { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin: 12px 0 10px; }
+  .day-btn {
+    padding: 10px 2px; border-radius: 12px;
+    border: 1.5px solid var(--gray-200); background: var(--gray-100);
+    cursor: pointer; text-align: center;
+    font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; color: var(--gray-400);
+    transition: all .2s cubic-bezier(.34,1.56,.64,1);
+    position: relative; overflow: hidden; user-select: none;
+  }
+  .day-btn:hover { transform: scale(1.08); }
+  .day-btn .ripple-el {
+    position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,.4);
+    animation: ripple .5s ease-out; pointer-events: none;
+  }
+  .day-btn.low  { border-color: var(--blue-200); color: var(--blue-800); background: var(--blue-50); }
+  .day-btn.high { border-color: #9de0ca; color: #0d7a5f; background: #f0faf6; }
+  .day-btn.mod  { border-color: #f5d891; color: #c07a10; background: #fffbee; }
+  .day-btn.active { color: #fff !important; transform: scale(1.1); box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+  .day-btn.low.active  { background: linear-gradient(135deg, var(--blue-800), var(--blue-600)); border-color: var(--blue-700); }
+  .day-btn.high.active { background: linear-gradient(135deg, #0d7a5f, #15a67f); border-color: #0d7a5f; }
+  .day-btn.mod.active  { background: linear-gradient(135deg, #c07a10, #e09520); border-color: #c07a10; }
+  .day-label { font-size: 9px; margin-bottom: 2px; opacity: .75; letter-spacing: .05em; }
+  .legend-row { display: flex; gap: 14px; margin-bottom: 14px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--gray-600); font-weight: 500; }
+  .legend-dot  { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .day-type-badge {
+    font-size: 13px; font-weight: 700; margin-top: 6px;
+    padding: 10px 14px; border-radius: 10px;
+    background: var(--blue-50); border-left: 3px solid var(--blue-800);
+    transition: all .3s ease; animation: slideInL .4s ease both;
+  }
+
+  /* ===== MEAL CARDS ===== */
+  .meal-card {
+    background: var(--white);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 16px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: box-shadow .25s, border-color .25s;
+    animation: staggerIn .4s ease both;
+  }
+  .meal-card:hover { box-shadow: 0 4px 20px rgba(30,16,199,.09); border-color: var(--blue-200); }
+  .meal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.3rem; cursor: pointer; user-select: none;
+    transition: background .18s;
+  }
+  .meal-header:hover { background: var(--blue-50); }
+  .meal-name { font-size: 14px; font-weight: 700; }
+  .meal-time { font-size: 12px; color: var(--gray-400); font-weight: 400; margin-left: 6px; }
+  .meal-kcal {
+    font-size: 13px; font-weight: 700; color: var(--blue-800);
+    background: var(--blue-100); padding: 4px 12px; border-radius: 20px;
+    transition: transform .2s;
+  }
+  .meal-kcal:hover { transform: scale(1.06); }
+  .meal-macros { display: flex; gap: 10px; margin-top: 5px; }
+  .meal-macro  { font-size: 11px; color: var(--gray-400); }
+  .meal-macro span { font-weight: 700; }
+  .chevron { font-size: 13px; color: var(--gray-400); transition: transform .3s ease; display: inline-block; }
+  .chevron.open { transform: rotate(180deg); color: var(--blue-800); }
+
+  .meal-foods {
+    padding: 10px 1.3rem 1rem;
+    border-top: 1px solid var(--gray-100);
+    animation: mealOpen .3s ease both; overflow: hidden;
+  }
+  .food-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0; border-bottom: 1px dashed var(--gray-100);
+    font-size: 13px; transition: padding-left .15s;
+  }
+  .food-row:last-child { border-bottom: none; }
+  .food-row:hover { padding-left: 4px; }
+  .food-qty { color: var(--gray-400); font-size: 12px; font-weight: 500; }
+  .subs-label {
+    font-size: 10px; font-weight: 700; color: var(--gray-400);
+    margin-top: 12px; text-transform: uppercase; letter-spacing: .07em;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .subs-label::after { content: ''; flex: 1; height: 1px; background: var(--gray-100); }
+  .sub-item { font-size: 12px; color: var(--gray-600); padding: 3px 0; }
+  .sub-item::before { content: "↳ "; color: var(--blue-400); font-weight: 700; }
+
+  /* ===== DAY TOTALS ===== */
+  .day-totals {
+    background: linear-gradient(135deg, var(--blue-900), var(--blue-800) 60%, var(--blue-600));
+    border-radius: 18px; padding: 1.2rem 1.4rem;
+    position: relative; overflow: hidden;
+    animation: fadeInUp .5s ease both;
+  }
+  .day-totals::before {
+    content: ''; position: absolute; top: -20px; right: -20px;
+    width: 130px; height: 130px; border-radius: 50%;
+    background: rgba(255,255,255,.05);
+  }
+  .totals-title {
+    font-size: 11px; font-weight: 700; color: rgba(255,255,255,.7);
+    text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px;
+  }
+  .totals-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .total-item {
+    text-align: center;
+    background: rgba(255,255,255,.1);
+    border-radius: 12px; padding: 10px;
+    transition: transform .2s, background .2s;
+  }
+  .total-item:hover { transform: translateY(-3px); background: rgba(255,255,255,.18); }
+  .total-val { font-size: 20px; font-weight: 900; color: #fff; animation: countPop .5s ease both; }
+  .total-lbl { font-size: 10px; color: rgba(255,255,255,.65); margin-top: 2px; letter-spacing: .04em; }
+
+  /* ===== ORIENTAÇÕES ===== */
+  .notes-card {
+    background: linear-gradient(135deg, var(--blue-50), #fff);
+    border-left: 3px solid var(--blue-800);
+    border-radius: 0 14px 14px 0;
+    padding: 1rem 1.2rem;
+    font-size: 13px; color: var(--gray-600); line-height: 1.8;
+  }
+  .note-line {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 5px 0; transition: color .2s;
+  }
+  .note-line:hover { color: var(--gray-800); }
+  .note-icon { color: var(--blue-800); flex-shrink: 0; font-size: 14px; margin-top: 2px; }
+
+  /* ===== SIDEBAR STICKY (TOTALS) ===== */
+  .sticky-side { position: sticky; top: 2rem; }
+
+  /* ===== LISTA DE COMPRAS ===== */
+  @keyframes checkPop { 0%{ transform:scale(1) } 50%{ transform:scale(1.3) } 100%{ transform:scale(1) } }
+  @keyframes progressGrow { from { width:0 } }
+
+  .shop-header {
+    background: linear-gradient(135deg, var(--blue-900), var(--blue-800) 60%, var(--blue-600));
+    border-radius: 18px; padding: 1.2rem 1.4rem;
+    position: relative; overflow: hidden;
+  }
+  .shop-header-top {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+  }
+  .shop-header-icon {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .shop-header-title { font-size: 18px; font-weight: 800; color: #fff; }
+  .shop-header-sub { font-size: 11px; color: rgba(255,255,255,.65); margin-top: 2px; }
+  .progress-wrap {
+    background: rgba(255,255,255,.1); border-radius: 10px; padding: 10px 14px;
+  }
+  .progress-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+  .progress-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .06em; }
+  .progress-count { font-size: 18px; font-weight: 900; color: #fff; }
+  .progress-count span { font-size: 12px; font-weight: 500; opacity: .7; }
+  .progress-bar { height: 5px; background: rgba(255,255,255,.15); border-radius: 3px; overflow: hidden; }
+  .progress-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, #6bffb8, #fff);
+    transition: width .4s cubic-bezier(.34,1.56,.64,1);
+    animation: progressGrow .8s ease both;
+  }
+
+  .cat-card {
+    background: var(--white); border: 1px solid var(--gray-200);
+    border-radius: 16px; padding: 1.1rem 1.2rem;
+    animation: fadeInUp .5s ease both;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .cat-card:hover { box-shadow: 0 6px 24px rgba(30,16,199,.08); transform: translateY(-2px); }
+  .cat-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px; padding-bottom: 8px;
+    border-bottom: 2px solid var(--blue-100);
+  }
+  .cat-icon {
+    width: 34px; height: 34px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  .cat-title { font-size: 12px; font-weight: 700; color: var(--blue-800); text-transform: uppercase; letter-spacing: .08em; }
+  .cat-count { font-size: 10px; color: var(--gray-400); font-weight: 500; margin-top: 1px; }
+
+  .item-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 6px; border-bottom: 1px solid var(--gray-100);
+    cursor: pointer; user-select: none;
+    transition: background .15s, padding-left .15s;
+    border-radius: 6px; margin: 0 -6px;
+  }
+  .item-row:last-child { border-bottom: none; }
+  .item-row:hover { background: var(--blue-50); padding-left: 10px; }
+  .item-row.checked { opacity: .4; }
+  .item-row.checked .item-name { text-decoration: line-through; }
+  .checkbox {
+    width: 20px; height: 20px; border-radius: 6px;
+    border: 2px solid var(--gray-200); background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all .2s;
+    font-size: 11px; color: transparent;
+  }
+  .item-row.checked .checkbox {
+    background: var(--blue-800); border-color: var(--blue-800);
+    color: #fff; animation: checkPop .3s ease;
+  }
+  .item-name { font-size: 13px; font-weight: 500; flex: 1; }
+  .item-qty {
+    font-size: 10px; font-weight: 600; color: var(--blue-800);
+    background: var(--blue-50); padding: 2px 8px; border-radius: 20px;
+    border: 1px solid var(--blue-100); white-space: nowrap;
+  }
+
+  .shop-divider {
+    grid-column: span 12; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--blue-200), transparent);
+    margin: 8px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ========== HEADER — 12 cols ========== -->
+  <div class="col-12 header" style="animation-delay:.05s">
+    <div class="header-logo">
+      <svg viewBox="0 0 1492 532" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1170.07 519.125C1171.09 490.635 1177.77 450.665 1187.22 417.675C1217.31 312.585 1283.59 203.865 1380.97 99.6552L1386.06 94.2752H1297.98H1210.04L1196.09 128.145C1188.39 146.605 1177.19 173.925 1170.94 188.755C1164.84 203.585 1154.37 228.725 1147.68 244.715C1141.14 260.705 1130.53 286.285 1124.28 301.405C1117.88 316.665 1109.31 337.305 1104.95 347.625L1097.25 366.085H1047.69H997.98L984.03 331.635C976.33 312.595 958.45 268.985 944.35 234.545C930.25 200.245 912.08 155.475 903.94 135.415C895.8 115.215 888.68 98.6452 888.24 98.6452C887.8 98.6452 887.37 109.545 887.37 123.065C887.37 136.435 887.37 196.615 887.22 256.785L886.93 366.085H840.42H793.91V185.125V4.16519H869.2H944.64L956.41 32.9452C962.95 48.6452 980.39 90.6452 995.22 126.255C1010.19 161.865 1026.76 201.695 1032.28 214.915C1047.69 252.125 1046.96 250.675 1048.27 248.345C1050.01 244.855 1098.85 128.145 1133.74 43.8352L1150.75 2.7052H1321.1H1491.59V48.6352V94.5652L1472.26 115.785C1436.79 155.025 1420.37 175.815 1396.82 212.005C1348.27 286.275 1313.24 376.835 1297.69 467.815C1293.62 491.945 1291 513.745 1291 524.505V531.775H1230.39H1169.63L1170.07 519.125Z" fill="white"/><path d="M341.43 510.555C340.85 509.975 340.41 497.185 340.41 482.065V454.735H331.83C322.24 454.735 321.51 454.005 321.95 444.565L322.24 439.475L349.57 439.035L376.75 438.745V446.735V454.725H368.03H359.31L359.02 482.775L358.58 510.685L350.59 511.125C346.08 511.415 342.01 511.125 341.43 510.545V510.555Z" fill="white"/><path d="M403.79 510.265C403.35 509.825 402.92 493.545 402.92 474.075V438.465L423.12 439.045C440.85 439.485 443.9 439.915 447.39 442.535C454.8 448.055 457.27 452.705 457.27 461.285C457.27 470.005 454.51 475.095 446.95 480.325L442.59 483.235L451.02 496.175C455.82 503.445 459.6 509.835 459.6 510.565C459.6 511.145 458.15 511.435 456.4 510.855C454.51 510.415 449.71 509.985 445.79 509.985H438.38L430.82 496.905C426.6 489.785 422.54 483.825 421.81 483.825C420.94 483.825 420.36 489.785 420.36 497.635V511.295H412.51C408.15 511.145 404.23 510.715 403.79 510.275V510.265ZM436.64 468.255C439.84 465.345 440.13 458.665 436.93 455.605C435.48 454.155 432.13 453.275 427.48 453.275H420.36V461.995V470.715H427.19C431.41 470.715 434.89 469.845 436.64 468.245V468.255Z" fill="white"/><path d="M488.53 510.405L480.54 509.825L493.62 474.355L506.85 438.745H517.02H527.19L530.68 448.625C533.88 457.495 551.03 503.135 553.21 508.505C554.08 510.395 552.63 510.685 544.34 510.535L534.46 510.385L532.43 503.555L530.25 496.865H517.02H503.79L501.17 504.135C499.72 508.205 498.12 511.255 497.54 511.115C497.1 510.965 493.03 510.675 488.53 510.385V510.405ZM524.14 480.605C520.94 470.135 517.31 461.855 516.29 463.015C515.71 463.595 513.96 467.815 512.66 472.175C511.21 476.535 509.75 481.045 509.32 482.055C508.88 483.365 510.92 483.795 517.02 483.795C524.87 483.795 525.16 483.645 524.14 480.595V480.605Z" fill="white"/><path d="M623.85 474.795V438.745H633.01L642.02 438.895L655.83 459.535L669.64 480.175L670.08 459.535L670.52 438.755H679.1H687.82V475.095V511.435H679.39H670.81L656.86 490.355C649.01 478.725 642.33 469.275 641.6 469.275C641.02 469.275 640.58 478.575 640.58 489.915V510.695H632.3H623.87V474.795H623.85Z" fill="white"/><path d="M716.87 474.355V437.145L726.03 437.585L735.04 438.025V474.365V510.705L726.03 511.145L716.87 511.585V474.375V474.355Z" fill="white"/><path d="M763.38 474.795V438.745H772.54H781.55L793.76 457.645C800.45 467.965 806.84 477.265 807.86 478.135C809.6 479.585 809.89 476.535 809.89 459.235V438.745H818.61H827.33V475.085V511.425H818.9H810.32L795.93 490.055L781.54 468.545L780.81 489.625L780.08 510.705H771.8H763.37V474.805L763.38 474.795Z" fill="white"/><path d="M881.55 509.975C864.4 506.485 853.5 492.535 853.5 473.635C853.5 462.005 856.7 454.445 864.69 447.325C880.39 433.225 906.11 435.405 918.61 451.835C921.23 455.175 922.83 458.665 922.24 459.245C921.66 459.825 917.44 460.555 912.94 460.695C906.4 460.985 903.93 460.405 900.73 457.935C895.93 454.155 885.9 453.715 879.8 456.915C871.95 460.835 868.46 474.795 873.11 483.805C876.74 490.785 882.12 493.975 890.12 493.975C896.08 493.975 897.97 493.245 901.6 489.755C907.85 483.505 907.12 482.345 896.37 482.345H886.92V475.805V469.265H905.82H924.72V474.495C924.72 498.045 904.66 514.465 881.55 509.965V509.975Z" fill="white"/><path d="M577.33 473.635V437.155L586.49 437.595L595.5 438.035L595.94 474.085L596.23 509.985H586.78H577.33V473.645V473.635Z" fill="white"/><path d="M129.66 367.385C96.38 366.225 79.95 362.735 59.89 352.705C42.74 344.125 22.54 324.215 13.67 306.925C6.84 293.695 2.62 279.165 1.02 263.325L0 252.715H48.11C95.49 252.715 96.22 252.715 96.22 255.625C96.22 260.275 101.6 269.575 105.96 272.775C114.54 278.585 117.59 278.875 185.76 278.875C261.92 278.875 255.38 280.475 254.36 262.745C253.92 254.315 253.2 251.985 249.42 247.335C240.41 236.145 227.91 232.075 169.62 221.465C62.64 201.845 44.04 196.175 24.27 176.405C9.01 161.145 3.05 144.575 3.05 116.665C2.9 68.995 24.27 33.525 64.97 13.615C90.99 0.965 105.67-0.775 182.41 0.245C244.47 0.975 250.58 1.695 271.65 9.985C302.03 22.195 324.41 46.035 334.3 76.845C337.64 86.875 340.4 102.135 340.4 109.985V114.635H292.43H244.61L242.87 108.535C240.54 99.815 236.77 95.015 229.5 91.525C223.54 88.615 220.92 88.475 172.38 88.475C140.98 88.475 119.47 89.055 116.13 90.075C99.85 94.585 93.02 114.205 103.78 125.835C110.9 133.685 117.59 135.425 193.61 149.385C265.85 162.755 291.58 170.165 311.63 183.395C336.63 200.115 349.13 222.635 349.13 251.125C349.13 269.295 345.5 283.535 336.63 301.125C330.96 312.175 327.33 316.965 315.85 328.305C301.46 342.545 291.58 349.085 272.68 356.645C246.08 367.255 206.26 370.305 129.66 367.405V367.385Z" fill="white"/><path d="M344.78 364.765C344.78 364.035 347.11 358.365 350.01 352.115C352.92 345.715 363.67 322.025 373.85 299.205C414.4 208.505 461.35 105.165 462.37 104.005C462.95 103.425 483.15 103.135 507.14 103.275L550.89 103.715L542.17 124.795C537.37 136.425 527.64 160.265 520.37 177.845C513.25 195.435 502.2 222.325 495.95 237.435C468.62 304.005 450.46 348.625 446.97 357.055L443.34 366.065H394.07C366.89 366.065 344.8 365.485 344.8 364.755L344.78 364.765Z" fill="white"/><path d="M648.56 321.455C616.29 247.325 509.17 6.485 506.55 2.265C506.26 1.685 527.92 1.395 554.95 1.535L603.79 1.975L612.22 20.875C621.81 42.825 640.56 84.535 656.55 119.715C668.32 145.585 673.85 157.795 728.21 278.295C746.52 319.135 763.09 355.325 764.69 358.525C766.43 361.865 767.74 364.925 767.74 365.355C767.74 365.795 745.36 366.085 717.89 366.085H668.04L648.56 321.465V321.455Z" fill="white"/><path d="M1429.37 363.605C1419.92 360.265 1408 348.635 1404.52 339.045C1396.38 317.385 1404.52 295.145 1424.87 283.955C1431.85 280.035 1434.03 279.595 1445.07 279.595C1455.1 279.595 1458.59 280.325 1463.53 282.935C1479.23 291.215 1487.22 303.425 1488.38 320.435C1488.96 329.445 1488.53 331.915 1485.04 339.765C1480.1 350.525 1469.92 360.405 1460.04 363.745C1451.61 366.655 1437.66 366.505 1429.37 363.595V363.605ZM1461.93 356.915C1471.81 351.825 1478.06 344.855 1481.55 334.675C1485.33 324.205 1484.6 315.635 1479.37 305.455C1472.39 291.645 1460.91 284.675 1445.07 284.675C1429.81 284.675 1417.02 292.375 1410.48 305.455C1402.63 321.155 1405.39 336.705 1418.18 349.495C1430.68 361.995 1446.52 364.755 1461.93 356.905V356.915Z" fill="white"/><path d="M1439.69 348.345L1435.62 340.645L1425.88 340.205C1420.36 339.915 1416 339.335 1416 338.895C1416 338.315 1418.03 334.535 1420.36 330.175L1424.72 322.475L1420.36 315.495C1418.03 311.575 1416 307.935 1416 307.355C1416 306.915 1420.22 306.485 1425.45 306.485H1434.9L1438.82 298.495C1441 294.135 1443.47 290.505 1444.34 290.505C1445.21 290.505 1447.83 293.995 1450.3 298.205L1454.66 305.765L1464.25 306.495L1473.99 307.225L1469.77 314.055C1464.54 322.335 1464.54 323.065 1469.04 330.475C1474.42 339.195 1473.98 339.925 1463.37 339.925H1454.07L1449.56 347.915C1447.09 352.275 1444.76 355.905 1444.47 355.905C1444.03 355.905 1442 352.415 1439.67 348.345H1439.69ZM1447.1 343.255C1448.26 340.205 1445.94 337.735 1442.88 339.035C1440.99 339.615 1440.85 340.485 1442.15 342.815C1444.04 346.305 1445.93 346.595 1447.09 343.255H1447.1ZM1430.97 331.775C1430.1 329.305 1426.75 329.015 1425.3 331.335C1424.14 333.365 1427.33 335.555 1429.95 334.535C1430.97 334.245 1431.4 332.935 1430.97 331.775ZM1455.24 328.725L1458.44 323.345L1455.24 317.095C1452.19 310.995 1451.9 310.845 1445.21 310.845C1438.67 310.845 1437.94 311.285 1434.45 316.515L1430.67 322.185L1433.87 328.145C1436.92 333.955 1437.36 334.105 1444.63 334.105C1451.61 334.105 1452.19 333.815 1455.24 328.725ZM1463.96 331.925C1462.94 330.765 1461.63 329.745 1461.05 329.745C1460.47 329.745 1459.6 330.765 1459.02 331.925C1458.44 333.525 1459.31 334.105 1462.07 334.105C1465.12 334.105 1465.56 333.815 1463.96 331.925ZM1430.53 312.885C1430.53 311.725 1429.22 310.855 1427.62 310.855C1424.42 310.855 1423.84 312.305 1426.46 314.925C1428.35 316.815 1430.53 315.945 1430.53 312.895V312.885ZM1463.67 314.915C1466.14 312.445 1465.85 310.845 1462.8 310.845C1459.31 310.845 1458.15 312.005 1459.17 314.625C1460.04 317.095 1461.35 317.245 1463.68 314.915H1463.67ZM1447.97 305.325C1447.97 303.145 1444.05 298.785 1443.32 300.095C1440.7 304.895 1440.85 306.495 1444.34 306.495C1446.37 306.495 1447.97 305.915 1447.97 305.335V305.325Z" fill="white"/></svg>
+    </div>
+    <svg class="header-watermark" viewBox="0 0 1492 532" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1170.07 519.125C1171.09 490.635 1177.77 450.665 1187.22 417.675C1217.31 312.585 1283.59 203.865 1380.97 99.6552L1386.06 94.2752H1297.98H1210.04L1196.09 128.145C1188.39 146.605 1177.19 173.925 1170.94 188.755C1164.84 203.585 1154.37 228.725 1147.68 244.715C1141.14 260.705 1130.53 286.285 1124.28 301.405C1117.88 316.665 1109.31 337.305 1104.95 347.625L1097.25 366.085H1047.69H997.98L984.03 331.635C976.33 312.595 958.45 268.985 944.35 234.545C930.25 200.245 912.08 155.475 903.94 135.415C895.8 115.215 888.68 98.6452 888.24 98.6452C887.8 98.6452 887.37 109.545 887.37 123.065C887.37 136.435 887.37 196.615 887.22 256.785L886.93 366.085H840.42H793.91V185.125V4.16519H869.2H944.64L956.41 32.9452C962.95 48.6452 980.39 90.6452 995.22 126.255C1010.19 161.865 1026.76 201.695 1032.28 214.915C1047.69 252.125 1046.96 250.675 1048.27 248.345C1050.01 244.855 1098.85 128.145 1133.74 43.8352L1150.75 2.7052H1321.1H1491.59V48.6352V94.5652L1472.26 115.785C1436.79 155.025 1420.37 175.815 1396.82 212.005C1348.27 286.275 1313.24 376.835 1297.69 467.815C1293.62 491.945 1291 513.745 1291 524.505V531.775H1230.39H1169.63L1170.07 519.125Z" fill="white"/><path d="M341.43 510.555C340.85 509.975 340.41 497.185 340.41 482.065V454.735H331.83C322.24 454.735 321.51 454.005 321.95 444.565L322.24 439.475L349.57 439.035L376.75 438.745V446.735V454.725H368.03H359.31L359.02 482.775L358.58 510.685L350.59 511.125C346.08 511.415 342.01 511.125 341.43 510.545V510.555Z" fill="white"/><path d="M403.79 510.265C403.35 509.825 402.92 493.545 402.92 474.075V438.465L423.12 439.045C440.85 439.485 443.9 439.915 447.39 442.535C454.8 448.055 457.27 452.705 457.27 461.285C457.27 470.005 454.51 475.095 446.95 480.325L442.59 483.235L451.02 496.175C455.82 503.445 459.6 509.835 459.6 510.565C459.6 511.145 458.15 511.435 456.4 510.855C454.51 510.415 449.71 509.985 445.79 509.985H438.38L430.82 496.905C426.6 489.785 422.54 483.825 421.81 483.825C420.94 483.825 420.36 489.785 420.36 497.635V511.295H412.51C408.15 511.145 404.23 510.715 403.79 510.275V510.265ZM436.64 468.255C439.84 465.345 440.13 458.665 436.93 455.605C435.48 454.155 432.13 453.275 427.48 453.275H420.36V461.995V470.715H427.19C431.41 470.715 434.89 469.845 436.64 468.245V468.255Z" fill="white"/><path d="M488.53 510.405L480.54 509.825L493.62 474.355L506.85 438.745H517.02H527.19L530.68 448.625C533.88 457.495 551.03 503.135 553.21 508.505C554.08 510.395 552.63 510.685 544.34 510.535L534.46 510.385L532.43 503.555L530.25 496.865H517.02H503.79L501.17 504.135C499.72 508.205 498.12 511.255 497.54 511.115C497.1 510.965 493.03 510.675 488.53 510.385V510.405ZM524.14 480.605C520.94 470.135 517.31 461.855 516.29 463.015C515.71 463.595 513.96 467.815 512.66 472.175C511.21 476.535 509.75 481.045 509.32 482.055C508.88 483.365 510.92 483.795 517.02 483.795C524.87 483.795 525.16 483.645 524.14 480.595V480.605Z" fill="white"/><path d="M623.85 474.795V438.745H633.01L642.02 438.895L655.83 459.535L669.64 480.175L670.08 459.535L670.52 438.755H679.1H687.82V475.095V511.435H679.39H670.81L656.86 490.355C649.01 478.725 642.33 469.275 641.6 469.275C641.02 469.275 640.58 478.575 640.58 489.915V510.695H632.3H623.87V474.795H623.85Z" fill="white"/><path d="M716.87 474.355V437.145L726.03 437.585L735.04 438.025V474.365V510.705L726.03 511.145L716.87 511.585V474.375V474.355Z" fill="white"/><path d="M763.38 474.795V438.745H772.54H781.55L793.76 457.645C800.45 467.965 806.84 477.265 807.86 478.135C809.6 479.585 809.89 476.535 809.89 459.235V438.745H818.61H827.33V475.085V511.425H818.9H810.32L795.93 490.055L781.54 468.545L780.81 489.625L780.08 510.705H771.8H763.37V474.805L763.38 474.795Z" fill="white"/><path d="M881.55 509.975C864.4 506.485 853.5 492.535 853.5 473.635C853.5 462.005 856.7 454.445 864.69 447.325C880.39 433.225 906.11 435.405 918.61 451.835C921.23 455.175 922.83 458.665 922.24 459.245C921.66 459.825 917.44 460.555 912.94 460.695C906.4 460.985 903.93 460.405 900.73 457.935C895.93 454.155 885.9 453.715 879.8 456.915C871.95 460.835 868.46 474.795 873.11 483.805C876.74 490.785 882.12 493.975 890.12 493.975C896.08 493.975 897.97 493.245 901.6 489.755C907.85 483.505 907.12 482.345 896.37 482.345H886.92V475.805V469.265H905.82H924.72V474.495C924.72 498.045 904.66 514.465 881.55 509.965V509.975Z" fill="white"/><path d="M577.33 473.635V437.155L586.49 437.595L595.5 438.035L595.94 474.085L596.23 509.985H586.78H577.33V473.645V473.635Z" fill="white"/><path d="M129.66 367.385C96.38 366.225 79.95 362.735 59.89 352.705C42.74 344.125 22.54 324.215 13.67 306.925C6.84 293.695 2.62 279.165 1.02 263.325L0 252.715H48.11C95.49 252.715 96.22 252.715 96.22 255.625C96.22 260.275 101.6 269.575 105.96 272.775C114.54 278.585 117.59 278.875 185.76 278.875C261.92 278.875 255.38 280.475 254.36 262.745C253.92 254.315 253.2 251.985 249.42 247.335C240.41 236.145 227.91 232.075 169.62 221.465C62.64 201.845 44.04 196.175 24.27 176.405C9.01 161.145 3.05 144.575 3.05 116.665C2.9 68.995 24.27 33.525 64.97 13.615C90.99 0.965 105.67-0.775 182.41 0.245C244.47 0.975 250.58 1.695 271.65 9.985C302.03 22.195 324.41 46.035 334.3 76.845C337.64 86.875 340.4 102.135 340.4 109.985V114.635H292.43H244.61L242.87 108.535C240.54 99.815 236.77 95.015 229.5 91.525C223.54 88.615 220.92 88.475 172.38 88.475C140.98 88.475 119.47 89.055 116.13 90.075C99.85 94.585 93.02 114.205 103.78 125.835C110.9 133.685 117.59 135.425 193.61 149.385C265.85 162.755 291.58 170.165 311.63 183.395C336.63 200.115 349.13 222.635 349.13 251.125C349.13 269.295 345.5 283.535 336.63 301.125C330.96 312.175 327.33 316.965 315.85 328.305C301.46 342.545 291.58 349.085 272.68 356.645C246.08 367.255 206.26 370.305 129.66 367.405V367.385Z" fill="white"/><path d="M344.78 364.765C344.78 364.035 347.11 358.365 350.01 352.115C352.92 345.715 363.67 322.025 373.85 299.205C414.4 208.505 461.35 105.165 462.37 104.005C462.95 103.425 483.15 103.135 507.14 103.275L550.89 103.715L542.17 124.795C537.37 136.425 527.64 160.265 520.37 177.845C513.25 195.435 502.2 222.325 495.95 237.435C468.62 304.005 450.46 348.625 446.97 357.055L443.34 366.065H394.07C366.89 366.065 344.8 365.485 344.8 364.755L344.78 364.765Z" fill="white"/><path d="M648.56 321.455C616.29 247.325 509.17 6.485 506.55 2.265C506.26 1.685 527.92 1.395 554.95 1.535L603.79 1.975L612.22 20.875C621.81 42.825 640.56 84.535 656.55 119.715C668.32 145.585 673.85 157.795 728.21 278.295C746.52 319.135 763.09 355.325 764.69 358.525C766.43 361.865 767.74 364.925 767.74 365.355C767.74 365.795 745.36 366.085 717.89 366.085H668.04L648.56 321.465V321.455Z" fill="white"/><path d="M1429.37 363.605C1419.92 360.265 1408 348.635 1404.52 339.045C1396.38 317.385 1404.52 295.145 1424.87 283.955C1431.85 280.035 1434.03 279.595 1445.07 279.595C1455.1 279.595 1458.59 280.325 1463.53 282.935C1479.23 291.215 1487.22 303.425 1488.38 320.435C1488.96 329.445 1488.53 331.915 1485.04 339.765C1480.1 350.525 1469.92 360.405 1460.04 363.745C1451.61 366.655 1437.66 366.505 1429.37 363.595V363.605ZM1461.93 356.915C1471.81 351.825 1478.06 344.855 1481.55 334.675C1485.33 324.205 1484.6 315.635 1479.37 305.455C1472.39 291.645 1460.91 284.675 1445.07 284.675C1429.81 284.675 1417.02 292.375 1410.48 305.455C1402.63 321.155 1405.39 336.705 1418.18 349.495C1430.68 361.995 1446.52 364.755 1461.93 356.905V356.915Z" fill="white"/><path d="M1439.69 348.345L1435.62 340.645L1425.88 340.205C1420.36 339.915 1416 339.335 1416 338.895C1416 338.315 1418.03 334.535 1420.36 330.175L1424.72 322.475L1420.36 315.495C1418.03 311.575 1416 307.935 1416 307.355C1416 306.915 1420.22 306.485 1425.45 306.485H1434.9L1438.82 298.495C1441 294.135 1443.47 290.505 1444.34 290.505C1445.21 290.505 1447.83 293.995 1450.3 298.205L1454.66 305.765L1464.25 306.495L1473.99 307.225L1469.77 314.055C1464.54 322.335 1464.54 323.065 1469.04 330.475C1474.42 339.195 1473.98 339.925 1463.37 339.925H1454.07L1449.56 347.915C1447.09 352.275 1444.76 355.905 1444.47 355.905C1444.03 355.905 1442 352.415 1439.67 348.345H1439.69ZM1447.1 343.255C1448.26 340.205 1445.94 337.735 1442.88 339.035C1440.99 339.615 1440.85 340.485 1442.15 342.815C1444.04 346.305 1445.93 346.595 1447.09 343.255H1447.1ZM1430.97 331.775C1430.1 329.305 1426.75 329.015 1425.3 331.335C1424.14 333.365 1427.33 335.555 1429.95 334.535C1430.97 334.245 1431.4 332.935 1430.97 331.775ZM1455.24 328.725L1458.44 323.345L1455.24 317.095C1452.19 310.995 1451.9 310.845 1445.21 310.845C1438.67 310.845 1437.94 311.285 1434.45 316.515L1430.67 322.185L1433.87 328.145C1436.92 333.955 1437.36 334.105 1444.63 334.105C1451.61 334.105 1452.19 333.815 1455.24 328.725ZM1463.96 331.925C1462.94 330.765 1461.63 329.745 1461.05 329.745C1460.47 329.745 1459.6 330.765 1459.02 331.925C1458.44 333.525 1459.31 334.105 1462.07 334.105C1465.12 334.105 1465.56 333.815 1463.96 331.925ZM1430.53 312.885C1430.53 311.725 1429.22 310.855 1427.62 310.855C1424.42 310.855 1423.84 312.305 1426.46 314.925C1428.35 316.815 1430.53 315.945 1430.53 312.895V312.885ZM1463.67 314.915C1466.14 312.445 1465.85 310.845 1462.8 310.845C1459.31 310.845 1458.15 312.005 1459.17 314.625C1460.04 317.095 1461.35 317.245 1463.68 314.915H1463.67ZM1447.97 305.325C1447.97 303.145 1444.05 298.785 1443.32 300.095C1440.7 304.895 1440.85 306.495 1444.34 306.495C1446.37 306.495 1447.97 305.915 1447.97 305.335V305.325Z" fill="white"/></svg>
+    <div class="header-top">
+      <div class="avatar">JA</div>
+      <div>
+        <div class="header-name">Jackson Angamarca</div>
+        <div class="header-sub">Plano Nutricional SAM7 · Recomposição Corporal · 23/03/2026</div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-box"><div class="stat-val">85,3 kg</div><div class="stat-lbl">Peso</div></div>
+      <div class="stat-box"><div class="stat-val">35,5%</div><div class="stat-lbl">Gordura</div></div>
+      <div class="stat-box"><div class="stat-val">55 kg</div><div class="stat-lbl">Massa Magra</div></div>
+      <div class="stat-box"><div class="stat-val">2.684</div><div class="stat-lbl">TDEE kcal</div></div>
+    </div>
+  </div>
+
+  <!-- ========== MACROS — 8 cols | SUPLEMENTAÇÃO — 4 cols ========== -->
+  <div class="col-8 card" style="animation-delay:.12s">
+    <div class="section-title">Cálculo de Macros — Base Diária</div>
+    <div class="info-text">TMB (Mifflin-St Jeor Homem): 1.732 kcal · Fator atividade moderado ×1,55 = TDEE 2.684 kcal</div>
+    <div class="macros-grid">
+      <div class="macro-item">
+        <div class="macro-label">Proteína</div>
+        <div class="macro-val m-blue">187 g</div>
+        <div class="macro-sub">2,2g/kg · 748 kcal</div>
+        <div class="macro-bar"><div class="macro-bar-fill" style="width:70%;background:var(--blue-800)"></div></div>
+      </div>
+      <div class="macro-item">
+        <div class="macro-label">Gordura</div>
+        <div class="macro-val m-amber">85 g</div>
+        <div class="macro-sub">1,0g/kg · 765 kcal</div>
+        <div class="macro-bar"><div class="macro-bar-fill" style="width:32%;background:#c07a10"></div></div>
+      </div>
+      <div class="macro-item">
+        <div class="macro-label">Carb — Low Carb</div>
+        <div class="macro-val m-red">&lt;80 g</div>
+        <div class="macro-sub">Meta: ~2.200 kcal/dia</div>
+        <div class="macro-bar"><div class="macro-bar-fill" style="width:15%;background:#c04030"></div></div>
+      </div>
+      <div class="macro-item">
+        <div class="macro-label">Carb — High Carb</div>
+        <div class="macro-val m-green">280 g</div>
+        <div class="macro-sub">Meta: ~2.600 kcal/dia</div>
+        <div class="macro-bar"><div class="macro-bar-fill" style="width:90%;background:#0d7a5f"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:10px;">
+      <span class="info-badge">Moderado Sex/Sáb/Dom: 150g carb · ~2.400 kcal</span>
+      <span class="info-badge" style="margin-left:6px;">Déficit médio semanal ~350 kcal/dia</span>
+    </div>
+  </div>
+
+  <div class="col-4 card" style="animation-delay:.18s">
+    <div class="section-title">Suplementação</div>
+    <div class="supp-item"><span class="supp-name"><span class="supp-dot"></span>Whey Protein</span><span class="supp-dose">2 scoops/dia</span></div>
+    <div class="supp-item"><span class="supp-name"><span class="supp-dot"></span>Creatina</span><span class="supp-dose">5g/dia</span></div>
+    <div class="supp-item"><span class="supp-name"><span class="supp-dot"></span>Vitamina D3</span><span class="supp-dose">4.000 UI/dia</span></div>
+    <div class="supp-item"><span class="supp-name"><span class="supp-dot"></span>Ômega-3</span><span class="supp-dose">2g/dia</span></div>
+    <div class="supp-item"><span class="supp-name"><span class="supp-dot"></span>Caseína</span><span class="supp-dose">1 scoop noite</span></div>
+  </div>
+
+  <!-- ========== PROTOCOLO — 12 cols ========== -->
+  <div class="col-12 card" style="animation-delay:.22s">
+    <div class="section-title">Protocolo 3+1 — Selecione o Dia</div>
+    <div class="legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--blue-800)"></div> Low Carb (&lt;80g)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0d7a5f"></div> High Carb (280g)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#c07a10"></div> Moderado (150g)</div>
+    </div>
+    <div class="day-tabs">
+      <div class="day-btn low active"><div class="day-label">SEG</div>LOW</div>
+      <div class="day-btn low"><div class="day-label">TER</div>LOW</div>
+      <div class="day-btn low"><div class="day-label">QUA</div>LOW</div>
+      <div class="day-btn high"><div class="day-label">QUI</div>HIGH</div>
+      <div class="day-btn mod"><div class="day-label">SEX</div>MOD</div>
+      <div class="day-btn mod"><div class="day-label">SÁB</div>MOD</div>
+      <div class="day-btn mod"><div class="day-label">DOM</div>MOD</div>
+    </div>
+    <div id="day-type-badge" class="day-type-badge" style="color:var(--blue-800)">
+      Segunda-feira — Protocolo Low Carb (&lt;80g carboidratos)
+    </div>
+  </div>
+
+  <!-- ========== REFEIÇÕES — 8 cols | TOTAIS — 4 cols (sticky) ========== -->
+  <div class="col-8" id="meals-container" style="animation-delay:.28s"></div>
+
+  <div class="col-4" style="animation-delay:.3s">
+    <div class="sticky-side">
+      <div class="day-totals">
+        <div class="totals-title">Totais do Dia</div>
+        <div class="totals-row" style="grid-template-columns: repeat(2, 1fr);">
+          <div class="total-item"><div class="total-val" id="t-kcal">2.190</div><div class="total-lbl">Kcal</div></div>
+          <div class="total-item"><div class="total-val" id="t-prot">190</div><div class="total-lbl">Proteína (g)</div></div>
+          <div class="total-item"><div class="total-val" id="t-carb">72</div><div class="total-lbl">Carb (g)</div></div>
+          <div class="total-item"><div class="total-val" id="t-fat">84</div><div class="total-lbl">Gordura (g)</div></div>
+        </div>
+      </div>
+
+      <!-- ORIENTAÇÕES aqui no sidebar -->
+      <div class="card" style="margin-top:16px;">
+        <div class="section-title">Orientações Gerais</div>
+        <div class="notes-card">
+          <div class="note-line"><span class="note-icon">⏱</span><span>Refeição a cada 2,5–4h. NÃO fique mais de 4h sem comer.</span></div>
+          <div class="note-line"><span class="note-icon">💧</span><span>Mínimo 4–5L de água/dia.</span></div>
+          <div class="note-line"><span class="note-icon">🔄</span><span>Refeed 1x/semana, preferencialmente quinta (High Carb).</span></div>
+          <div class="note-line"><span class="note-icon">⚡</span><span>Pré-treino: carb + prot 1–2h antes. Pós: whey + carb em 1h.</span></div>
+          <div class="note-line"><span class="note-icon">🥦</span><span>Priorize integrais. Bacon/cream cheese com moderação.</span></div>
+          <div class="note-line"><span class="note-icon">🔀</span><span>Não repita fontes proteicas no mesmo dia.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== LISTA DE COMPRAS ========== -->
+  <div class="shop-divider"></div>
+
+  <div class="col-12 shop-header" style="animation-delay:.35s">
+    <div class="shop-header-top">
+      <div class="shop-header-icon">🛒</div>
+      <div>
+        <div class="shop-header-title">Lista de Compras Semanal</div>
+        <div class="shop-header-sub">Protocolo 3+1 · Toque nos itens para marcar</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span class="progress-label">Progresso</span>
+        <span class="progress-count" id="prog-count">0 <span>/ 33</span></span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4 cat-card" id="cat-0" style="animation-delay:.4s"></div>
+  <div class="col-4 cat-card" id="cat-1" style="animation-delay:.43s"></div>
+  <div class="col-4 cat-card" id="cat-2" style="animation-delay:.46s"></div>
+  <div class="col-4 cat-card" id="cat-3" style="animation-delay:.49s"></div>
+  <div class="col-4 cat-card" id="cat-4" style="animation-delay:.52s"></div>
+  <div class="col-4 cat-card" id="cat-5" style="animation-delay:.55s"></div>
+  <div class="col-4 cat-card" id="cat-6" style="animation-delay:.58s"></div>
+
+</div>
+
+<script>
+/* ===== POLYFILL closest (navegadores antigos / WebView WhatsApp) ===== */
+if (!Element.prototype.closest) {
+  Element.prototype.closest = function(s) {
+    var el = this;
+    do { if (el.matches ? el.matches(s) : el.msMatchesSelector(s)) return el; el = el.parentElement || el.parentNode; } while (el !== null && el.nodeType === 1);
+    return null;
+  };
+}
+
+/* ===== HELPERS ===== */
+function getById(id) { return document.getElementById(id); }
+function qsa(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+
+function tryStorage(action, key, val) {
+  try {
+    if (action === 'get') return JSON.parse(localStorage.getItem(key) || '{}');
+    if (action === 'set') localStorage.setItem(key, JSON.stringify(val));
+  } catch(e) { return {}; }
+}
+
+/* ===== LISTA DE COMPRAS ===== */
+var SHOP_CATEGORIES = [
+  { icon:'🥩', title:'Proteínas', color:'#fef2f2', items:[
+    {name:'Ovos inteiros',qty:'3 dúzias (36 un)'},{name:'Peito de frango',qty:'1,8 kg'},{name:'Carne vermelha (patinho)',qty:'1 kg'},
+    {name:'Salmão (filé)',qty:'700g'},{name:'Turkey bacon',qty:'1 pct (~135g)'},{name:'Atum em lata',qty:'2 latas'}
+  ]},
+  { icon:'🥛', title:'Laticínios', color:'#f0f4ff', items:[
+    {name:'Leite integral',qty:'2L'},{name:'Leite desnatado',qty:'1L'},{name:'Iogurte grego 0%',qty:'600g'},
+    {name:'Cream cheese light',qty:'1 pote'},{name:'Mussarela fat free',qty:'200g'}
+  ]},
+  { icon:'🌾', title:'Carboidratos / Grãos', color:'#fefce8', items:[
+    {name:'Arroz branco',qty:'1 kg'},{name:'Aveia em flocos',qty:'500g'},{name:'Feijão preto',qty:'500g'},
+    {name:'Batata doce',qty:'1 kg'},{name:'Pão integral',qty:'1 pacote'},{name:'Granola s/ açúcar',qty:'1 pct'}
+  ]},
+  { icon:'🍎', title:'Frutas', color:'#fdf2f8', items:[
+    {name:'Banana',qty:'8 unidades'},{name:'Morango',qty:'500g'},{name:'Blueberry',qty:'200g'},{name:'Avocado',qty:'3 unidades'}
+  ]},
+  { icon:'🥦', title:'Vegetais', color:'#f0fdf4', items:[
+    {name:'Brócolis',qty:'500g'},{name:'Couve-flor',qty:'300g'},{name:'Espinafre',qty:'300g'},
+    {name:'Vagem',qty:'200g'},{name:'Tomate',qty:'300g'},{name:'Pepino',qty:'2 unidades'}
+  ]},
+  { icon:'🫒', title:'Gorduras / Temperos', color:'#fefce8', items:[
+    {name:'Azeite extra virgem',qty:'500ml'},{name:'Pasta de amendoim',qty:'1 pote'},{name:'Mel',qty:'1 pote'}
+  ]},
+  { icon:'💊', title:'Suplementos', color:'#f4f4ff', items:[
+    {name:'Whey Protein',qty:'~420g/sem'},{name:'Caseína',qty:'~210g/sem'},{name:'Creatina',qty:'35g/sem'},
+    {name:'Vitamina D3',qty:'4.000 UI/dia'},{name:'Ômega-3',qty:'2g/dia'}
+  ]}
+];
+
+var shopChecked = tryStorage('get', 'sam7-shop-jk1');
+var shopTotal = 0;
+for (var si = 0; si < SHOP_CATEGORIES.length; si++) shopTotal += SHOP_CATEGORIES[si].items.length;
+
+function shopSave() { tryStorage('set', 'sam7-shop-jk1', shopChecked); }
+
+function shopCountChecked() {
+  var n = 0; for (var k in shopChecked) { if (shopChecked[k]) n++; } return n;
+}
+
+function shopUpdateProgress() {
+  var n = shopCountChecked();
+  getById('prog-count').innerHTML = n + ' <span>/ ' + shopTotal + '</span>';
+  getById('prog-fill').style.width = (n / shopTotal * 100) + '%';
+}
+
+function shopToggle(key) {
+  shopChecked[key] = !shopChecked[key];
+  var el = document.querySelector('[data-shop="' + key + '"]');
+  if (el) {
+    if (shopChecked[key]) { el.className = 'item-row checked'; } else { el.className = 'item-row'; }
+    var cb = el.getElementsByClassName('checkbox')[0];
+    if (cb) cb.textContent = shopChecked[key] ? '✓' : '';
+  }
+  shopSave(); shopUpdateProgress();
+  var ci = key.split('-')[0];
+  var cat = SHOP_CATEGORIES[ci];
+  var cn = 0; for (var i = 0; i < cat.items.length; i++) { if (shopChecked[ci + '-' + i]) cn++; }
+  var cEl = getById('scount-' + ci);
+  if (cEl) cEl.textContent = cn + ' de ' + cat.items.length;
+}
+
+for (var ci = 0; ci < SHOP_CATEGORIES.length; ci++) {
+  var cat = SHOP_CATEGORIES[ci];
+  var el = getById('cat-' + ci);
+  if (!el) continue;
+  var cn = 0; for (var j = 0; j < cat.items.length; j++) { if (shopChecked[ci + '-' + j]) cn++; }
+  var html = '<div class="cat-header"><div class="cat-icon" style="background:' + cat.color + ';">' + cat.icon + '</div><div><div class="cat-title">' + cat.title + '</div><div class="cat-count" id="scount-' + ci + '">' + cn + ' de ' + cat.items.length + '</div></div></div>';
+  for (var ii = 0; ii < cat.items.length; ii++) {
+    var k = ci + '-' + ii, ch = shopChecked[k];
+    html += '<div class="item-row' + (ch ? ' checked' : '') + '" data-shop="' + k + '"><div class="checkbox">' + (ch ? '✓' : '') + '</div><span class="item-name">' + cat.items[ii].name + '</span><span class="item-qty">' + cat.items[ii].qty + '</span></div>';
+  }
+  el.innerHTML = html;
+}
+shopUpdateProgress();
+
+/* ===== PLANO NUTRICIONAL ===== */
+var days = {
+  seg: { name:'Segunda-feira', type:'low',  label:'Protocolo Low Carb (<80g carboidratos)', color:'#1E10C7' },
+  ter: { name:'Terça-feira',   type:'low',  label:'Protocolo Low Carb (<80g carboidratos)', color:'#1E10C7' },
+  qua: { name:'Quarta-feira',  type:'low',  label:'Protocolo Low Carb (<80g carboidratos)', color:'#1E10C7' },
+  qui: { name:'Quinta-feira',  type:'high', label:'Protocolo High Carb (280g) — Treino pesado', color:'#0d7a5f' },
+  sex: { name:'Sexta-feira',   type:'mod',  label:'Protocolo Moderado (150g carboidratos)', color:'#c07a10' },
+  sab: { name:'Sábado',        type:'mod',  label:'Protocolo Moderado (150g carboidratos)', color:'#c07a10' },
+  dom: { name:'Domingo',       type:'mod',  label:'Protocolo Moderado (150g carboidratos)', color:'#c07a10' }
+};
+var dayKeys = ['seg','ter','qua','qui','sex','sab','dom'];
+
+var mealsData = {
+  low: [
+    { name:'☀️ Café da Manhã', time:'07:00', kcal:480, p:45, c:20, f:24,
+      foods:[{name:'4 ovos inteiros mexidos',qty:'200g'},{name:'Bacon (turkey bacon)',qty:'3 slices / 45g'},{name:'Cream cheese 1/3 less fat',qty:'30g'},{name:'Espinafre ou kale refogado',qty:'80g'}],
+      subs:['150g de claras + 1 ovo inteiro','150g iogurte grego + 30g pasta de amendoim'] },
+    { name:'🥤 Lanche da Manhã', time:'10:00', kcal:320, p:50, c:12, f:8,
+      foods:[{name:'Whey Protein (2 scoops)',qty:'60g'},{name:'Leite integral ou 2%',qty:'200ml'},{name:'Morango ou blueberry',qty:'80g'}],
+      subs:['4 ovos mexidos + 80g batata doce','140g iogurte grego + 40g blueberry + 10g granola'] },
+    { name:'🍗 Almoço', time:'13:00', kcal:520, p:50, c:25, f:22,
+      foods:[{name:'Peito de frango grelhado',qty:'200g'},{name:'Batata doce assada',qty:'80g'},{name:'Brócolis + couve-flor',qty:'150g'},{name:'Azeite extra virgem',qty:'10ml'}],
+      subs:['200g tilápia ou salmão','130g batata inglesa'] },
+    { name:'🥗 Lanche da Tarde', time:'16:00', kcal:410, p:42, c:8, f:22,
+      foods:[{name:'Salmão grelhado',qty:'150g'},{name:'Avocado',qty:'80g'},{name:'Vegetais variados',qty:'100g'}],
+      subs:['150g atum em água + 80g avocado','150g frango + 30g mussarela fat free'] },
+    { name:'🌙 Jantar', time:'19:30', kcal:460, p:48, c:10, f:24,
+      foods:[{name:'Carne vermelha patinho/sirloin',qty:'180g'},{name:'Brócolis + vagem refogada',qty:'150g'},{name:'Queijo mussarela fat free',qty:'50g'},{name:'Azeite extra virgem',qty:'10ml'}],
+      subs:['180g tilápia grelhada + vegetais','160g frango + aspargos + cream cheese'] }
+  ],
+  high: [
+    { name:'☀️ Café da Manhã', time:'07:00', kcal:560, p:42, c:65, f:14,
+      foods:[{name:'Aveia em flocos (oats)',qty:'80g'},{name:'Whey Protein (1 scoop)',qty:'30g'},{name:'Banana',qty:'100g'},{name:'Morango',qty:'80g'},{name:'Mel',qty:'10g'}],
+      subs:['Wrap integral + 2 ovos + 80g batata doce','Pão integral (2 fatias) + 2 ovos + avocado'] },
+    { name:'🥤 Pré-treino', time:'10:30', kcal:480, p:45, c:55, f:8,
+      foods:[{name:'Whey Protein (2 scoops)',qty:'60g'},{name:'Banana grande',qty:'130g'},{name:'Arroz branco cozido',qty:'100g'},{name:'Leite desnatado',qty:'200ml'}],
+      subs:['Rice cakes (4 unid) + 2 scoops whey','Batata doce 120g + 150g frango picado'] },
+    { name:'🍚 Almoço', time:'13:30', kcal:680, p:52, c:80, f:16,
+      foods:[{name:'Peito de frango grelhado',qty:'200g'},{name:'Arroz branco cozido',qty:'150g'},{name:'Feijão preto',qty:'100g'},{name:'Vegetais refogados',qty:'120g'},{name:'Azeite extra virgem',qty:'8ml'}],
+      subs:['200g ground turkey 93% + arroz + feijão','200g salmão + macarrão integral 130g'] },
+    { name:'🥗 Pós-treino', time:'17:00', kcal:420, p:45, c:48, f:6,
+      foods:[{name:'Whey Protein (2 scoops)',qty:'60g'},{name:'Leite integral',qty:'250ml'},{name:'Banana',qty:'100g'},{name:'Granola s/ açúcar',qty:'20g'}],
+      subs:['4 claras + 1 ovo + batata doce 100g','200g peito peru + batata inglesa 130g'] },
+    { name:'🌙 Jantar', time:'20:00', kcal:560, p:50, c:45, f:18,
+      foods:[{name:'Salmão grelhado',qty:'180g'},{name:'Arroz branco ou macarrão',qty:'110g cru'},{name:'Espinafre ou brócolis',qty:'150g'},{name:'Azeite extra virgem',qty:'8ml'}],
+      subs:['180g carne vermelha magra + batata doce','180g tilápia + macarrão integral 130g'] }
+  ],
+  mod: [
+    { name:'☀️ Café da Manhã', time:'07:30', kcal:500, p:42, c:40, f:18,
+      foods:[{name:'Ovos inteiros mexidos',qty:'3 ovos / 150g'},{name:'Pão integral',qty:'2 fatias / 56g'},{name:'Avocado amassado',qty:'60g'},{name:'Morango',qty:'80g'}],
+      subs:['Tapioca 90g + 2 ovos + mussarela fat free','Mingau de aveia 50g + 1 scoop whey + frutas'] },
+    { name:'🥤 Lanche da Manhã', time:'10:00', kcal:380, p:46, c:32, f:8,
+      foods:[{name:'Iogurte grego 0%',qty:'200g'},{name:'Aveia em flocos',qty:'30g'},{name:'Blueberry',qty:'60g'},{name:'Pasta de amendoim natural',qty:'15g'}],
+      subs:['Whey 1 scoop + 200ml leite + banana','4 ovos + 80g batata doce'] },
+    { name:'🍗 Almoço', time:'13:00', kcal:600, p:50, c:55, f:18,
+      foods:[{name:'Peito de frango grelhado',qty:'200g'},{name:'Arroz branco cozido',qty:'120g'},{name:'Feijão preto cozido',qty:'80g'},{name:'Vegetais refogados',qty:'120g'},{name:'Azeite extra virgem',qty:'8ml'}],
+      subs:['200g tilápia/camarão + arroz + feijão','200g carne magra + batata doce + salada'] },
+    { name:'🥗 Lanche da Tarde', time:'16:30', kcal:420, p:42, c:30, f:14,
+      foods:[{name:'Salmão grelhado ou atum',qty:'140g'},{name:'Batata doce assada',qty:'80g'},{name:'Vegetais (tomate, pepino)',qty:'100g'}],
+      subs:['140g frango + 80g batata doce','2 scoops whey + 200ml leite + 60g aveia'] },
+    { name:'🌙 Jantar', time:'19:30', kcal:500, p:48, c:25, f:22,
+      foods:[{name:'Carne vermelha (sirloin/patinho)',qty:'170g'},{name:'Batata doce pequena',qty:'80g'},{name:'Brócolis + espinafre',qty:'150g'},{name:'Azeite extra virgem',qty:'10ml'}],
+      subs:['170g frango + 80g macarrão + brócolis','150g salmão + batata inglesa + vegetais'] }
+  ]
+};
+
+var currentDay = 'seg';
+var expanded = {};
+
+var macroColors = {
+  low:  { c:'#c04030', p:'#1E10C7', f:'#c07a10' },
+  high: { c:'#0d7a5f', p:'#1E10C7', f:'#c07a10' },
+  mod:  { c:'#c07a10', p:'#1E10C7', f:'#c04030' }
+};
+
+function selectDay(day, el) {
+  var btns = qsa('.day-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].className = btns[i].className.replace(' active', '');
+  el.className += ' active';
+  currentDay = day;
+  var d = days[day];
+  var badge = getById('day-type-badge');
+  badge.style.color = d.color;
+  badge.style.borderLeftColor = d.color;
+  badge.style.background = d.color === '#1E10C7' ? '#f4f4ff' : d.color === '#0d7a5f' ? '#f0faf6' : '#fffbee';
+  badge.textContent = d.name + ' — ' + d.label;
+  badge.style.animation = 'none';
+  void badge.offsetWidth;
+  badge.style.animation = 'slideInL .35s ease both';
+  expanded = {};
+  renderMeals();
+}
+
+function toggleMeal(idx) {
+  expanded[idx] = !expanded[idx];
+  renderMeals();
+}
+
+function renderMeals() {
+  var d = days[currentDay];
+  var meals = mealsData[d.type];
+  var tK = 0, tP = 0, tC = 0, tF = 0;
+  for (var i = 0; i < meals.length; i++) { tK += meals[i].kcal; tP += meals[i].p; tC += meals[i].c; tF += meals[i].f; }
+
+  getById('t-kcal').textContent = tK.toLocaleString('pt-BR');
+  getById('t-prot').textContent = tP;
+  getById('t-carb').textContent = tC;
+  getById('t-fat').textContent = tF;
+
+  // animate totals
+  var totals = qsa('.total-val');
+  for (var t = 0; t < totals.length; t++) { totals[t].style.animation = 'none'; void totals[t].offsetWidth; totals[t].style.animation = 'countPop .4s ease both'; }
+
+  var mc = macroColors[d.type];
+  var container = getById('meals-container');
+  var h = '';
+  for (var i = 0; i < meals.length; i++) {
+    var m = meals[i], isOpen = expanded[i];
+    h += '<div class="meal-card" style="animation-delay:' + (i * 0.07) + 's">';
+    h += '<div class="meal-header" data-meal="' + i + '">';
+    h += '<div><div class="meal-name">' + m.name + '<span class="meal-time">' + m.time + '</span></div>';
+    h += '<div class="meal-macros"><div class="meal-macro"><span style="color:' + mc.p + '">' + m.p + 'g</span> Prot</div>';
+    h += '<div class="meal-macro"><span style="color:' + mc.c + '">' + m.c + 'g</span> Carb</div>';
+    h += '<div class="meal-macro"><span style="color:' + mc.f + '">' + m.f + 'g</span> Gord</div></div></div>';
+    h += '<div style="display:flex;align-items:center;gap:10px;"><div class="meal-kcal">' + m.kcal + ' kcal</div>';
+    h += '<div class="chevron' + (isOpen ? ' open' : '') + '">▼</div></div></div>';
+    if (isOpen) {
+      h += '<div class="meal-foods">';
+      for (var f = 0; f < m.foods.length; f++) h += '<div class="food-row"><span>' + m.foods[f].name + '</span><span class="food-qty">' + m.foods[f].qty + '</span></div>';
+      h += '<div class="subs-label">Substituições</div>';
+      for (var s = 0; s < m.subs.length; s++) h += '<div class="sub-item">' + m.subs[s] + '</div>';
+      h += '</div>';
+    }
+    h += '</div>';
+  }
+  container.innerHTML = h;
+}
+
+renderMeals();
+
+/* ===== ÚNICO EVENT HANDLER — ES5 puro, funciona em qualquer WebView ===== */
+document.addEventListener('click', function(e) {
+  var t = e.target;
+
+  // Lista de compras
+  var row = t.closest('[data-shop]');
+  if (row) { shopToggle(row.getAttribute('data-shop')); return; }
+
+  // Meal toggle
+  var mh = t.closest('[data-meal]');
+  if (mh) { toggleMeal(parseInt(mh.getAttribute('data-meal'))); return; }
+
+  // Day tabs
+  var db = t.closest('.day-btn');
+  if (db) {
+    var btns = qsa('.day-btn');
+    for (var i = 0; i < btns.length; i++) { if (btns[i] === db) { selectDay(dayKeys[i], db); break; } }
+  }
+}, false);
+</script>
+
+</body>
+</html>
